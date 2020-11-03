@@ -1,0 +1,12 @@
+<h1>Create new patient.</h1>
+
+<form method="POST" enctype="multipart/form-data"> 
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">  
+</form>
+
+<a href="{% url 'patients' %}">
+    Back
+</a><br><br>

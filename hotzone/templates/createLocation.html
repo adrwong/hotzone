@@ -1,0 +1,29 @@
+<h1>Create Location</h1>
+
+<form method="POST" enctype="multipart/form-data"> 
+
+    {% csrf_token %}
+    <p>
+        <label for="id_addressEN">AddressEN:</label> 
+        <input type="text" name="addressEN" maxlength="200" required="" id="id_addressEN">
+    </p>
+    <p>
+        <label for="id_nameEN">NameEN:</label> 
+        <input type="text" name="nameEN" maxlength="200" required="" id="id_nameEN">
+    </p>
+    <p>
+        <label for="id_xCoor">XCoor:</label> 
+        <input type="number" name="xCoor" step="1e-8" required="" id="id_xCoor">
+    </p>
+    <p>
+        <label for="id_yCoor">YCoor:</label> 
+        <input type="number" name="yCoor" step="1e-8" required="" id="id_yCoor">
+    </p>
+
+
+    <input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'locations' %}">
+    Back
+</a>

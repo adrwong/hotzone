@@ -1,0 +1,14 @@
+<h1>Create new virus</h1>
+
+<form method="POST" enctype="multipart/form-data"> 
+
+    {% csrf_token %}
+    <p><label for="id_name">Name:</label> <input type="text" name="name" maxlength="200" required="" id="id_name"></p>
+    <p><label for="id_cmName">Common Name:</label> <input type="text" name="cmName" maxlength="200" required="" id="id_cmName"></p>
+    <p><label for="id_maxInfestPeriod">Maximum Infestious Period:</label> <input type="number" name="maxInfestPeriod" value="0" required="" id="id_maxInfestPeriod">days</p>
+    <input type="submit" value="Submit">  
+</form>
+
+<a href="{% url 'virusList' %}">
+    Back
+</a><br><br>

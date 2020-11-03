@@ -1,0 +1,35 @@
+<form method="POST">
+    {% csrf_token %}
+    {{ form.nameEN }}
+    <button type="submit" class="button is-info">
+        Search
+    </button>
+</form>
+
+<h1>Showing all GeoData Search results</h1>
+<ul>
+    {% for geoResult in geoResult_list %}
+    <li>
+            {{ geoResult.nameEN }}
+            ( {{ geoResult.addressEN }})
+            [{{ geoResult.x }}, 
+            {{ geoResult.y }}]
+    </li>
+    {% empty %}
+    <li>
+        No search result.
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'createLocation' %}">
+    Create New Location to the system
+</a><br><br>
+
+<a href="{% url 'locations' %}">
+    Back
+</a><br><br>
+
+<a href="{% url 'home' %}">
+    Home
+</a>

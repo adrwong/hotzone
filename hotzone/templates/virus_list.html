@@ -1,0 +1,22 @@
+<h1>Showing all virus</h1>
+<ul>
+
+{% for virus in virus_list %}
+    <li>
+        {{ virus.name }}({{virus.cmName}})[Max. Infestious Period: {{virus.maxInfestPeriod}}days]
+        (Infested quantity: {{ virus.patient_set.all | length }})
+    </li>
+    {% empty %}
+    <li>
+        No virus yet.
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'createVirus' %}">
+    Create New Virus
+</a><br><br>
+
+<a href="{% url 'home' %}">
+    Home
+</a>

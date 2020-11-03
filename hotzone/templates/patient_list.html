@@ -1,0 +1,24 @@
+<h1>Showing all patients</h1>
+<ul>
+
+{% for patient in patient_list %}
+    <li>
+        <a href="{% url 'patient-visits' patient.pk %}">
+            {{ patient.fName }}
+        </a>
+        ({{ patient.visit_set.all | length }})
+    </li>
+    {% empty %}
+    <li>
+        No patient yet.
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'createPatient' %}">
+    Create New Patient
+</a><br><br>
+
+<a href="{% url 'home' %}">
+    Home
+</a>

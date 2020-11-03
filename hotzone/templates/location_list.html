@@ -1,0 +1,26 @@
+<h1>Showing all locations</h1>
+<ul>
+
+{% for location in location_list %}
+    <li>
+        {{ location.nameEN }}
+        ({{ location.visit_set.all | length }})
+    </li>
+    {% empty %}
+    <li>
+        No location yet.
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'geoSearch' %}">
+    Search location from GeoData
+</a><br><br>
+
+<a href="{% url 'createLocation' %}">
+    Create New Location
+</a><br><br>
+
+<a href="{% url 'home' %}">
+    Home
+</a>
